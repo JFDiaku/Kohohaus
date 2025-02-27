@@ -1,0 +1,57 @@
+body{
+  margin-bottom: 500px;
+}
+
+.hero{
+  width: 100%;
+  height: 100vh;
+  object-fit:cover;
+  object-position: center;
+  position: relative;
+}
+
+@keyframes Zoom{
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+
+.hero-wrapper{
+  color: white;
+  
+  border: solid black 1px;
+  .hero-heading{
+    color: white;
+    margin-top: -20rem;
+    z-index: 99;
+    .welcome{
+      font-size: 50px;
+    }
+    .arrow{
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 20px;
+      color: white;
+    }
+    .explore {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      a{
+        color:white;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+
+  
+  
+  
