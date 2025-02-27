@@ -11,4 +11,8 @@ Testing: JUnit
 Build & Deployment: Maven, Docker, AWS  
   
 ✨ Features   
-Login  register  add items to cart  add item to wishlist  checkout with stripe 
+Login
+register  
+add items to cart  
+add item to wishlist  
+checkout with stripe 
