@@ -23,10 +23,13 @@ body{
 
 .hero-wrapper{
   color: white;
-  
-  border: solid black 1px;
+  padding: 0 2rem;
+  position: relative;
   .hero-heading{
     color: white;
+    position: absolute;
+    left: 2rem;
+    bottom: 2rem;
     margin-top: -20rem;
     z-index: 99;
     .welcome{

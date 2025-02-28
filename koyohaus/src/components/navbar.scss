@@ -1,0 +1,142 @@
+.nav{
+  background-color: transparent;
+  transition: all .3s ease-in-out;
+  .nav-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo{
+      font-weight: 500;
+      color: white;
+  
+    }
+    ul{
+      list-style: none;
+      a{
+        text-decoration: none;
+        color: white;
+        
+      }
+    }
+    .nav-right{
+      display: flex;
+      gap: 10px;
+    }
+  } 
+
+}
+
+
+.nav.mobile{
+    position: fixed;
+    top: 0;
+  height: 3rem;
+    border-bottom: solid white 1px;
+    left:0;
+    right: 0;
+    transition-delay: 2s;
+    transition: all 1.5s ease-in-out;
+    .nav-wrapper{
+      .logo{
+        font-size: 25px;
+        transition: color .6s ease-in-out;
+      }
+    }
+}
+
+.nav.mobile.active{
+  background-color: white;
+  border-bottom: solid 1px black;
+  transition-delay: 2s;
+  transition: color 1.5s ease-in-out;
+  .nav-wrapper{
+    ul{
+      a{
+        color:black;
+        
+      }
+    }
+    .logo{
+     color: black;
+    }
+  }
+}
+
+.mobile-nav{
+  position: fixed;
+  top: calc(3rem + 1px);
+  background-color: white;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  padding:0 10px;
+  max-height: 0;
+  min-height: 0;
+  opacity: 0;
+  transition: all .3s ease-in-out;
+  pointer-events: none;
+  .mobile-nav-item{
+    min-height: 0;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    height: 4rem;
+    a{
+      color: black;
+    }
+    .link-name{
+      font-size: 25px;
+    }
+  
+
+    .my-account{
+      display: flex;
+      align-items: center;
+      color: black;
+      gap: 10px;
+    }
+  }
+}
+
+
+.mobile-nav.active{
+  position: fixed;
+  top: calc(3rem + 1px);
+  background-color: white;
+  left: 0;
+  right: 0;
+  max-height: 100%;
+  min-height: 100%;
+  opacity: 1;
+  padding:0 10px;
+  margin-top: -5rem;
+  transform: translateY(5rem);
+  transition: all .3s ease-in-out;
+  .mobile-nav-item{
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    height: 4rem;
+    a{
+      color: black;
+    }
+    .link-name{
+      font-size: 25px;
+    }
+  }
+
+  .my-account{
+    display: flex;
+    align-items: center;
+    color: black;
+    gap: 10px;
+  }
+  
+}
+
