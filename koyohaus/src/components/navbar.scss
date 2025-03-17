@@ -1,7 +1,9 @@
 .nav{
   background-color: transparent;
-  transition: all .3s ease-in-out;
   .nav-wrapper{
+    max-width: 2000px;
+    width: 100%;
+    margin: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -26,17 +28,62 @@
 
 }
 
+.nav.desktop{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 0 3rem;
+  display: flex;
+  align-items: center;
+  height: 4rem;
+  .nav-left{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    .logo{
+      color: white;
+      font-size: 30px;
+      font-weight: 600;
+      margin-right: 40%;
+    }
+  }
+}
+
+.nav.hero{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 4rem;
+  .nav-left{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    .logo{
+      color: white;
+      font-size: 30px;
+      font-weight: 600;
+      margin-right: 40%;
+    }
+  }
+}
+
+
+
 
 .nav.mobile{
     position: fixed;
     top: 0;
   height: 3rem;
+  box-sizing: border-box;
+  display: flex;
     border-bottom: solid white 1px;
     left:0;
     right: 0;
-    transition-delay: 2s;
-    transition: all 1.5s ease-in-out;
+    transition: color .5s 2s, top .5s ;
+    padding:0 10px;
     .nav-wrapper{
+      min-width: 100%;
       .logo{
         font-size: 25px;
         transition: color .6s ease-in-out;
@@ -47,8 +94,7 @@
 .nav.mobile.active{
   background-color: white;
   border-bottom: solid 1px black;
-  transition-delay: 2s;
-  transition: color 1.5s ease-in-out;
+  transition: color 2s 1s , top .5s  ease-in-out !important ;
   .nav-wrapper{
     ul{
       a{
@@ -64,7 +110,7 @@
 
 .mobile-nav{
   position: fixed;
-  top: calc(3rem + 1px);
+  top: calc(3rem);
   background-color: white;
   left: 0;
   right: 0;

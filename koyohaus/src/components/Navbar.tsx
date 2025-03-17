@@ -4,6 +4,7 @@ import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useMediaQueryContext } from './MediaQueryContext';
 import "./navbar.scss"
+
 import { colors, MenuList } from '@mui/material';
 import { ArrowForward, Close, Menu} from '@mui/icons-material';
 import { useEffect, useState } from 'react';
@@ -16,22 +17,23 @@ const Navbar = () => {
   window.addEventListener("scroll",()=>{
     let currentScroll: number = window.scrollY || document.documentElement.scrollTop;
     const mobile_nav: any = document.getElementById('mobile-nav');
-    if (currentScroll <= 150 && isTablet) {
+    const nav: any = document.getElementById('nav');
+    if (currentScroll <= 150) {
       // At the top of the page
       mobile_nav.style.top = "-10rem";
   }
 
-  mobile_nav.style.transition = "top .5s ease-in-out";
-  mobile_nav.style.transitionDelay = "0";
+  
 
   if (currentScroll > lastScrollTop && isTablet) {
     // Downscroll
        mobile_nav.style.top = "-10rem";
+       nav.style.top = "-10rem";
     }else {
         // Upscroll
-        mobile_nav.style.transition = "color 1.5s ease-in-out";
+    
         mobile_nav.style.top = "0";
-  
+        nav.style.top = "0";
     }
 
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; 
@@ -39,7 +41,6 @@ const Navbar = () => {
 
 
   const scrollLock =( state: boolean)=>{
-    console.log(state);
     if(state){
       document.documentElement.style.overflow = 'hidden'
     }else{
@@ -63,11 +64,12 @@ const Navbar = () => {
   return (
     <>
     {isDesktop &&
-    <div className="nav desktop">
+    <div className="nav desktop" id='nav'>
+    <div className="nav-wrapper ">
+      
 
-    <p className="logo">Kōyōhaus</p>
-    <div className="nav-wrapper">
       <ul className="nav-left">
+        <p className="logo">Kōyōhaus</p>
         <li className='nav-link'>
           <Link to='' >Products</Link>
         </li>
@@ -107,7 +109,7 @@ const Navbar = () => {
     <>
     <div id='mobile-nav' className={isMobileNavOpen ? "nav mobile active" : "nav mobile"}>
     
-    <div className="nav-wrapper" style={{padding:'10px'}}>
+    <div className="nav-wrapper" >
     <p className="logo">Kōyōhaus</p>
     
 
@@ -155,7 +157,7 @@ const Navbar = () => {
 
         <Link to='' className="mobile-nav-item ">
           <div className="my-account">
-            <PersonOutlineRoundedIcon/>
+            <PersonOutlineRoundedIcon sx={{fontSize:"40px"}}/>
             <p className='link-name'>My Account</p>
           </div>
         </Link>
