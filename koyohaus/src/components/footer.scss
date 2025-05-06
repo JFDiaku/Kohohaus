@@ -1,0 +1,28 @@
+.footLink{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+
+  p{
+    font-weight: 400;
+    font-size: 15px;
+  }
+  li{
+    font-size: 13px;
+    font-weight: 500;
+    position: relative;
+    width: fit-content;
+  }
+  li::before{
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left:0;
+    height: 1px;
+    width: 0;
+    transition:all .2s ease-in-out ;
+  }
+ li:hover::before{
+    width: 100%;
+ }
+}

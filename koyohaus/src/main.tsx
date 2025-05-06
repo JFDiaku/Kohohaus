@@ -1,12 +1,12 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
-import { MediaQueryProvider } from './components/MediaQueryContext.tsx'
+import { BrowserRouter } from 'react-router-dom';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-     <MediaQueryProvider>
+     <BrowserRouter>
       <App />
-     </MediaQueryProvider>
+    </BrowserRouter>
   </StrictMode>,
 )

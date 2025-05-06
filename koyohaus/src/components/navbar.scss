@@ -1,5 +1,6 @@
 .nav{
   background-color: transparent;
+  z-index: 9;
   .nav-wrapper{
     max-width: 2000px;
     width: 100%;
@@ -7,18 +8,20 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
     .logo{
-      font-weight: 500;
+      font-weight: 600;
       color: white;
   
     }
     ul{
       list-style: none;
       a{
-        text-decoration: none;
-        color: white;
-        
+        font-size: .8em;
+        font-weight:500;
+        text-decoration: none      
       }
+
     }
     .nav-right{
       display: flex;
@@ -28,26 +31,139 @@
 
 }
 
+
+
 .nav.desktop{
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
-  padding: 0 3rem;
+  padding: 0;
   display: flex;
   align-items: center;
   height: 4rem;
+  transition: all .3s ease-in-out;
+  background-color: white;
   .nav-left{
     display: flex;
     align-items: center;
-    gap: 3rem;
+
+    .nav-link{
+      padding: 1rem;
+    }
+    .nav-link a{
+      position: relative;
+      width: fit-content;     
+    }
+    .nav-link a::before{
+      position: absolute;
+      content: "";
+      bottom: -5px;
+      left:0;
+      height: 2px;
+      width: 0;
+      transition:all .2s ease-in-out ;
+      background-color: black;
+      
+    }
+    .nav-link a:hover::before{
+      width: 100%;
+   }
+  
+
+
+   
     .logo{
-      color: white;
+      color: black;
       font-size: 30px;
       font-weight: 600;
-      margin-right: 40%;
+      margin-right: 30%;
     }
   }
+}
+
+.dropdown{
+  height: 400px;
+  position: absolute;
+  background-color: white;
+ left: 0;
+  top: 4rem;
+  right: 0;
+}
+
+.drop-wrapper{
+  position: relative;
+}
+
+.drop-wrapper::before{
+  position: absolute;
+  content: '';
+  top: 0;
+  height: 2px;
+  width: 0;
+  background-color: black;
+  transition: all .3s ease-in-out;
+}
+
+.drop-wrapper::after{
+  position: absolute;
+  content: '';
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: black;
+  transition: all .3s ease-in-out;
+}
+
+.dropdown.show .drop-wrapper::after, .dropdown.show .drop-wrapper::before{
+  width: 100%;
+}
+
+
+.products-dropdown{
+  opacity: 0;
+  max-width: 2000px;
+  margin: auto;
+  pointer-events: none;
+  transition: all .2s ease-in-out
+}
+
+.products-dropdown .sec{
+  position: relative;
+}
+
+
+.products-dropdown .sec::before, .products-dropdown .sec::after{
+  position: absolute;
+  content: "";
+  top: 0;
+  height: 0;
+  width: 2px;
+  background-color: black;
+  transition: all .3s ease-in-out;
+}
+
+
+
+.products-dropdown .sec::before{
+  left: 0;
+}
+
+
+.products-dropdown .sec::after{
+  right: 0;
+}
+
+
+
+.dropdown.show .products-dropdown .sec::before,.dropdown.show .products-dropdown .sec::after{
+  height: 100%;
+  transition: all .3s ease-in-out;
+}
+
+.dropdown.show .products-dropdown{
+  opacity: 1;
+  pointer-events: all;
 }
 
 .nav.hero{
@@ -55,6 +171,8 @@
   display: flex;
   align-items: center;
   height: 4rem;
+  color: white;
+  transition: all .2s ease-in-out;
   .nav-left{
     display: flex;
     align-items: center;
@@ -74,19 +192,25 @@
 .nav.mobile{
     position: fixed;
     top: 0;
-  height: 3rem;
   box-sizing: border-box;
   display: flex;
     border-bottom: solid white 1px;
     left:0;
     right: 0;
     transition: color .5s 2s, top .5s ;
-    padding:0 10px;
+    padding:5px 10px;
+    z-index: 8;
     .nav-wrapper{
       min-width: 100%;
+      
       .logo{
-        font-size: 25px;
+        font-size: 30px;
         transition: color .6s ease-in-out;
+      }
+      .logo2{
+        color: black;
+        font-size: 30px;
+        font-weight: 500;
       }
     }
 }
@@ -150,7 +274,7 @@
 
 .mobile-nav.active{
   position: fixed;
-  top: calc(3rem + 1px);
+  top: calc(3.5rem);
   background-color: white;
   left: 0;
   right: 0;
@@ -160,6 +284,7 @@
   padding:0 10px;
   margin-top: -5rem;
   transform: translateY(5rem);
+  pointer-events: all;
   transition: all .3s ease-in-out;
   .mobile-nav-item{
     width: 100%;
