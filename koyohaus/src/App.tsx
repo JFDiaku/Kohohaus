@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom'
 import Products from './pages/Products.tsx'
 import Footer from './components/Footer.tsx'
 import Scroll from './components/Scroll.tsx'
+import FilterWidget from './components/FilterWidget.tsx'
 function App() {
   const location = useLocation();
 
@@ -19,6 +20,7 @@ function App() {
     <>
       <Scroll/>
       {showNavbar && <Navbar />}
+ 
        <Routes>
           <Route path="/" element={<Homepage/>}/>
           <Route path="/products" element={<Products/>}/>

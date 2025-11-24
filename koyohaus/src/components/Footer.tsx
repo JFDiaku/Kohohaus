@@ -134,7 +134,7 @@ const Footer : React.FC<color> = ({color}) => {
       <div className="mycontainer">
         <div className="flex justify-between items-center w-full">
           <p className={ (color === "white" ? "text-black" : "text-white") + " text-3xl font-bold"}>Kōyōhaus</p>
-          <p className="text-sm font-mono text-gray-600">Copyright © Kōyōhaus Furniture 2023</p>
+          <p className="md:text-sm md:max-w-none max-w-32 text-xs font-mono text-gray-600">Copyright © Kōyōhaus Furniture 2023</p>
         </div>
       </div>
     </div>

@@ -3,7 +3,9 @@ import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import focus from "../assets/Images/productFocus.avif";
+import desfocus from "../assets/Images/designFocus.avif";
 import "./navbar.scss"
+import FilterWidget from './FilterWidget';
 
 import { colors, MenuList, requirePropFactory, useMediaQuery } from '@mui/material';
 import { ArrowForward, Close, Menu} from '@mui/icons-material';
@@ -41,7 +43,7 @@ const Navbar = () => {
     lastScroll = currentScroll <= 0 ? 0 : currentScroll;
   })
 
-
+// Mobile Nav scroll Lock
   const scrollLock =( state: boolean)=>{
     if(state){
       document.documentElement.style.overflow = 'hidden'
@@ -50,6 +52,8 @@ const Navbar = () => {
     }
   }
 
+
+  
 
   
 
@@ -65,6 +69,7 @@ const Navbar = () => {
     {name: 'Company', to: ''},
   ]
 
+  // Dropdown Nav Links//////
   const Bycategories: link[] = [
     {name: 'Chairs and stools', to: ''},
     {name: 'Lounge chairs', to: ''},
@@ -75,8 +80,6 @@ const Navbar = () => {
     {name: 'All Products', to:''}
   ]
 
-
-  
   const ByDesigners: link[] = [
     {name: 'Lorenzo Vélin', to: ''},
     {name: 'Marcelle Dupré', to: ''},
@@ -88,91 +91,245 @@ const Navbar = () => {
     {name: 'All Designers', to:''}
   ]
 
+  const Designers: link[] = [
+    {name: 'Lorenzo Vélin', to: ''},
+    {name: 'Marcelle Dupré', to: ''},
+    {name: 'Ansel Reinhardt', to: ''},
+    {name: 'Gianna Bellini', to: ''},
+    {name: 'Henrik Vaals', to: ''},
+    {name: 'Otto Krell', to: ''},
+    {name: 'Gianna Bellini', to: ''},
+    {name: 'Kade Elric', to: ''},
+    {name: 'Jaxon Rhys', to: ''},
+    {name: 'Avery Calder', to: ''},
+    {name: 'Noa Bennett', to: ''},
+    {name: 'Kade Elric', to: ''},
+    {name: 'Ember Sloane', to: ''},
+    {name: 'Elena Rousseau', to: ''},
+    {name: 'Lucien Mårten', to: ''},
+    {name: 'All Designers', to:''}
+
+  ]
+
+  const tool: link[] = [
+    {name: 'Professionals', to: ''},
+    {name: 'Press Room', to: ''},
+    {name: 'Cases', to: ''},
+  ]
+
+  const contact: link[] = [
+    {name: 'Customer Care', to: ''},
+    {name: 'Sales', to: ''},
+    {name: 'Press', to: ''},
+  ]
+
+  const company: link[] = [
+    {name: 'About Us', to: ''},
+    {name: 'Our History', to: ''},
+    {name: 'Warranty', to: ''},
+  ]
+  
+  const changeWrapperHeight =( state: String)=>{
+    const wrapper = document.getElementById("drop-wrapper");
+    if(!wrapper) return 
+    if(state === 'company'){
+      wrapper.style.height = '140px';
+    }else{
+      wrapper.style.height = '500px'
+    }
+  } 
+
+  const showcase: link[] = [
+    {name: 'Copenhagen', to: ''},
+    {name: 'London', to: ''},
+    {name: 'Oslo', to: ''},
+  ]
+// Dropdown Nav Links//////
+
+
+
+
   return (
     <>
     {isDesktop &&
 <>
     
-    <div className="nav desktop" id='nav'>
-    <div className="nav-wrapper px-8 ">
-  
-      <ul className="nav-left">
-        <Link  to='/' className="logo">Kōyōhaus</Link>
-        <li className='nav-link' 
-        onMouseEnter={()=>{
-          openDropdown(true);
-          setMenu('products');
-        }} 
-        onMouseLeave={()=>{
-          openDropdown(false);
-          setMenu("");
+    <div  className="nav desktop" id='nav'>
+
+      <div className="nav-wrapper px-8 ">
+    
+        <ul className="nav-left">
+          <Link  to='/' className="logo">Kōyōhaus</Link>
+
+          <li className='nav-link' 
+          onMouseEnter={()=>{
+            openDropdown(true);
+            setMenu('products');
+            changeWrapperHeight('products');
+          }} 
+        >
+            <Link to='/products' >Products</Link>
+          </li>
+
+          <li className='nav-link'
+          onMouseEnter={()=>{
+            openDropdown(true);
+            setMenu('designers');
+            changeWrapperHeight('designers');
+          }} >
+            <Link to='/designers'  >Designers</Link>
+          </li>
+          <li className='nav-link'
+          onMouseEnter={()=>{
+            setMenu('company');
+            changeWrapperHeight('company');
+            openDropdown(true);
+          }}
+          onMouseLeave={()=>{
+            
           }}>
-          <Link to='/products' >Products</Link>
-        </li>
-        <li className='nav-link'>
-          <Link to='' >Designers</Link>
-        </li>
-        <li className='nav-link'>
-          <Link to='' >Company</Link>
-        </li> 
-      </ul>
+            <Link to='company' >Company</Link>
+          </li> 
+        </ul>
 
 
-      <ul className="nav-right">
-        <li className='nav-link'>
-          <Link to='' >
-            <SearchRoundedIcon/>
-          </Link>
-        </li>
-        <li className='nav-link'>
-          <Link to='' >
-            <PersonOutlineRoundedIcon/>
-          </Link>
-        </li>
-        <li className='nav-link'>
-          <Link to='' >
-            <FavoriteBorderIcon/>
-          </Link>
-        </li> 
-      </ul>
-    </div>
-       
-    <div className={"dropdown" + ((isDropOpen && menu == 'products') ? " show" : "")} >
-      <div className="drop-wrapper h-fit">
-        <div  onMouseEnter={()=>{
-          openDropdown(true);
-          setMenu('products');
-        }} 
-        onMouseLeave={()=>{
-          openDropdown(false);
-          setMenu("");
-          }} className="products-dropdown grid grid-cols-3" >
-          <div className="px-8  py-5">
-            <p className='text-xs text-gray-600'>BY CATEGORY</p> 
-            {Bycategories.map((cat, indx)=>
-            <div key={indx} className="flex flex-col gap-3 font-medium">
-              <p className='text-xs'>{cat.name}</p>
+        <ul className="nav-right">
+          <li className='nav-link'>
+            <Link to='' >
+              <SearchRoundedIcon/>
+            </Link>
+          </li>
+          <li className='nav-link'>
+            <Link to='' >
+              <PersonOutlineRoundedIcon/>
+            </Link>
+          </li>
+          <li className='nav-link'>
+            <Link to='' >
+              <FavoriteBorderIcon/>
+            </Link>
+          </li> 
+        </ul>
+      </div>
+
+    
+        
+      <div className={"dropdown" + (isDropOpen ? " show" : "")} >
+        <div className="drop-wrapper" id='drop-wrapper'>
+          <div  onMouseEnter={()=>{
+            openDropdown(true);
+            setMenu('products');
+          }} 
+          onMouseLeave={()=>{
+            openDropdown(false);
+            setMenu('');
+            }} className={"products-dropdown" + (menu == 'products' ? " show" : "") +  " h-fit grid grid-cols-3"} >
+            <div className="px-8 max-h-min pt-5">
+              <p className='text-xs text-gray-600 font-medium'>BY CATEGORY</p> 
+            
+              <div className="flex mt-2 flex-col gap-3 font-medium">
+                  {Bycategories.map((cat, indx)=>
+                  <p key={indx} className='text-xs'>{cat.name}</p>
+                  )}
+              </div>
+              
             </div>
-            )}
-          </div>
-          <div className="sec p-5">
-          <p className='text-xs text-gray-600' >BY DESIGNER</p> 
-            {ByDesigners.map((des, indx)=>
-            <div key={indx} className="flex flex-col gap-3 font-medium">
-              <p className='text-xs'>{des.name}</p>
+            <div className="sec max-h-min p-5">
+            <p className='text-xs text-gray-600' >BY DESIGNER</p> 
+                <div className="flex mt-2 flex-col gap-3 font-medium">
+                  {ByDesigners.map((des, indx)=>
+                  <p key={indx} className='text-xs'>{des.name}</p>
+                  )}
+              </div>
             </div>
-            )}
+            <div className="p-5 max-h-[480px] flex gap-2 flex-col ">
+              <p className='text-xs text-gray-600'>PRODUCT FOCUS: Lorem ipsum dolor sit amet consectetur.</p>
+              <img className='aspect-square max-h-[440px] max-w-[440px]' src={focus} alt="" />
+            </div>
           </div>
-          <div className="p-5 flex gap-2 flex-col ">
-            <p className='text-xs text-gray-600'>PRODUCT FOCUS: Lorem ipsum dolor sit amet consectetur.</p>
-            <img className='aspect-square object-fit' src={focus} alt="" />
+
+          <div  onMouseEnter={()=>{
+            openDropdown(true);
+            setMenu('designers');
+          }} 
+          onMouseLeave={()=>{
+            openDropdown(false);
+            setMenu('');
+            }} className={"designers-dropdown" + (menu == 'designers' ? " show" : "") +   " h-fit grid grid-cols-3"} >
+
+            <div className="px-8 col-span-2 py-5 sec">
+              <p className='text-xs text-gray-600 font-medium'>DESIGNERS</p> 
+            
+              <div className="flex mt-2 flex-col h-1/2 flex-wrap gap-3 font-medium">
+                  {Designers.map((des, indx)=>
+                  <p key={indx} className='text-xs'>{des.name}</p>
+                  )}
+                  
+              </div>
+              
+            </div>
+
+        
+          
+            <div className="p-5 flex gap-2 flex-col ">
+              <p className='text-xs text-gray-600'>STUDIO VISIT: Lorem ipsum dolor sit amet consectetur.</p>
+              <img className='aspect-square max-h-[440px] max-w-[440px]' src={desfocus} alt="" />
+            </div>
           </div>
+
+          <div  onMouseEnter={()=>{
+            openDropdown(true);
+            setMenu('company');
+          }} 
+          onMouseLeave={()=>{
+            openDropdown(false);
+            setMenu('');
+            }} className={"company-dropdown" + (menu == 'company' ? " show" : "") +   " h-fit grid grid-cols-4"} >
+
+            <div className="px-8 py-5 sec1">
+            <p className='text-xs text-gray-600 font-medium'>TOOLS AND DOWNLOADS</p> 
+            <div className="flex flex-col gap-3 mt-3 font-medium">
+                {tool.map((link, indx)=>
+                  <p key={indx} className='text-xs'>{link.name}</p>
+                  )}
+            </div>
+            </div>
+
+            <div className="px-8 py-5 sec2">
+            <p className='text-xs text-gray-600 font-medium'>GET IN TOUCH</p> 
+            <div className="flex flex-col gap-3 mt-3 font-medium">
+                  {contact.map((link, indx)=>
+                  <p key={indx} className='text-xs'>{link.name}</p>
+                  )}
+            </div>
+            </div>
+
+            <div className="px-8 py-5 sec3">
+            <p className='text-xs text-gray-600 font-medium'>COMPANY</p> 
+            <div className="flex flex-col gap-3 mt-3 font-medium">
+                {company.map((link, indx)=>
+                  <p key={indx} className='text-xs'>{link.name}</p>
+                  )}
+            </div>
+            </div>
+          
+            <div className="px-8 py-5">
+            <p className='text-xs text-gray-600 font-medium'>SHOWROOMS</p> 
+            <div className="flex flex-col gap-3 mt-3 font-medium">
+                  {showcase.map((link, indx)=>
+                  <p key={indx} className='text-xs'>{link.name}</p>
+                  )}
+            </div>
+            </div>
+
+          </div>
+
         </div>
       </div>
-    </div>
-
 
     </div>
+    
+    
 </>
     }
 
