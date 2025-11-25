@@ -179,7 +179,13 @@ const Navbar = () => {
           }} >
             <Link to='/designers'  >Designers</Link>
           </li>
-          <li className='nav-link'
+           
+        </ul>
+
+
+        <ul className="nav-right">
+
+          <li className='nav-link company-link mr-10'
           onMouseEnter={()=>{
             setMenu('company');
             changeWrapperHeight('company');
@@ -189,11 +195,7 @@ const Navbar = () => {
             
           }}>
             <Link to='company' >Company</Link>
-          </li> 
-        </ul>
-
-
-        <ul className="nav-right">
+          </li>
           <li className='nav-link'>
             <Link to='' >
               <SearchRoundedIcon/>

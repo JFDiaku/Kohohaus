@@ -84,50 +84,53 @@ const Homepage = () => {
   useEffect(() => {
     const nav = document.getElementById("hero-nav") ;
     const homedropdown = document.getElementById("homedroptop")
-    const currentScroll = window.scrollY || document.documentElement.scrollTop;
+   
 
     if (!nav) return;
     if (!homedropdown) return;
+    let lastScrollTop = window.scrollY || document.documentElement.scrollTop;
 
-    const moveNav = () => {
-       if (currentScroll > 500 ){
-       homedropdown.style.bottom = '0 ';
-      homedropdown.style.top = 'unset ';
-      homedropdown.style.marginBottom = '5rem '; 
-      homedropdown.style.marginTop = 'unset '; 
-      }else{
-         homedropdown.style.bottom = 'unset ';
-      homedropdown.style.top = '0 ';
-      homedropdown.style.marginTop = '5rem '; 
-       homedropdown.style.marginBottom = 'unset '; 
-      }
-      
-    }
-
+   
     const handleScroll = () => {
-  
+      const currentScroll = window.scrollY || document.documentElement.scrollTop;
       const logo = document.getElementById("logo")
+    
       if (!nav || !logo) return;
+  
     
       if (currentScroll > 0) {
        nav.style.backgroundColor = "black"
        nav.style.color = 'white'
-      logo.style.color = 'white'
+       logo.style.color = 'white'
+    
       } else {
         nav.style.backgroundColor = "transparent" 
       
       }
+      
+      if(currentScroll > 300) {
+        homedropdown.style.marginBottom = 'unset';
+        homedropdown.style.bottom = 'unset';
+        homedropdown.style.top = '0';
+        homedropdown.style.marginTop = '5.5rem';
+      }else{
+        homedropdown.style.marginTop = 'unset';
+        homedropdown.style.top = 'unset';
+        homedropdown.style.bottom = '0';
+        homedropdown.style.marginBottom = '5.5rem';
 
-     
+      }
 
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     };
 
     
 
     window.addEventListener("scroll", handleScroll);
-     window.addEventListener("scroll", moveNav);
     handleScroll();
-    moveNav();
+
+
+
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -197,14 +200,13 @@ const Homepage = () => {
       const changeWrapperHeight =( state: String)=>{
         const wrapper = document.getElementById("drop-wrapper-hero");
         if(!wrapper) return 
-        if(state === ""){
-          wrapper.style.height = '0px';
-        }else if(state === 'company'){
+     
+        if(state === 'company'){
           wrapper.style.height = '140px';
         }else{
           wrapper.style.height = '500px'
         }
-   
+        
      
       } 
     
@@ -220,20 +222,25 @@ const Homepage = () => {
     const handleNav =(state: String) => {
       const nav =document.getElementById("hero-nav") ;
       const logo = document.getElementById("logo")
+      const currentScroll = window.scrollY || document.documentElement.scrollTop;
+    ;
       if (!nav || !logo) return;
-
+  
       if(state == 'active'){
         nav.style.backgroundColor = 'white';
         nav.style.color = 'black';
         logo.style.color = 'black';
+      }else if(currentScroll === 0){
+        nav.style.backgroundColor = 'transparent';
+        nav.style.color = 'white';
+        logo.style.color = 'white';
       }else{
         nav.style.backgroundColor = 'black';
         nav.style.color = 'white';
         logo.style.color = 'white';
       }
       
-
-    
+  
     }
 
   
@@ -271,95 +278,97 @@ const Homepage = () => {
 
     <section className="md:-mt-20 " >
         {isDesktop && <div id='hero-nav' className="nav hero top px-0" >
-        <div className="nav-wrapper px-8">
-                
-                    <ul className="nav-left">
-                      <Link  to='/' className="logo" id='logo'>Kōyōhaus</Link>
-            
-                      <li className='nav-link hero'  
-                      onMouseEnter={()=>{
-                        openDropdownMenu(true);
-                        setDrop('products');
-                        changeWrapperHeight('products');
+          <div className="nav-wrapper px-8">
+                  
+                      <ul className="nav-left">
+                        <Link  to='/' className="logo" id='logo'>Kōyōhaus</Link>
+              
+                        <li className='nav-link hero'  
+                        onMouseEnter={()=>{
+                          openDropdownMenu(true);
+                          setDrop('products');
+                          changeWrapperHeight('products');
+                          
+                        }} 
+                        onMouseOver={()=>{
+                          handleNav('active');
+                        }}
+
+                        onMouseLeave={()=>{
+                          handleNav('inactive');
+                          openDropdownMenu(false)
+                        }}
+                      >
+                          <Link to='/products'>Products</Link>
+                        </li>
+              
+                        <li className='nav-link hero' 
+                        onMouseEnter={()=>{
+                          openDropdownMenu(true);
+                          setDrop('designers');
+                          changeWrapperHeight('designers');
+                          
+                        }}
                         
-                      }} 
-                      onMouseOver={()=>{
-                        handleNav('active');
-                      }}
+                        onMouseOver={()=>{
+                          handleNav('active');
+                        }}
 
-                      onMouseLeave={()=>{
-                        handleNav('inactive');
-                        openDropdownMenu(false)
-                      }}
-                    >
-                        <Link>Products</Link>
-                      </li>
-            
-                      <li className='nav-link hero' 
-                      onMouseEnter={()=>{
-                        openDropdownMenu(true);
-                        setDrop('designers');
-                        changeWrapperHeight('designers');
+                        onMouseLeave={()=>{
+                          handleNav('inactive');
+                          openDropdownMenu(false)
+                        }}>
+                          <Link >Designers</Link>
+                        </li>
+
                         
-                      }}
-                      
-                      onMouseOver={()=>{
-                        handleNav('active');
-                      }}
+                      </ul>
+              
+              
+                      <ul className="nav-right">
 
-                      onMouseLeave={()=>{
-                        handleNav('inactive');
-                        openDropdownMenu(false)
-                      }}>
-                        <Link >Designers</Link>
-                      </li>
+                        <li className='nav-link hero mr-10 company-link' 
+                        onMouseEnter={()=>{
+                          setDrop('company');
+                          changeWrapperHeight('company');
+                          openDropdownMenu(true);
+                          
+                        }}
+                        onMouseOver={()=>{
+                          handleNav('active');
+                        }}
 
-                      <li className='nav-link hero' 
-                      onMouseEnter={()=>{
-                        setDrop('company');
-                        changeWrapperHeight('company');
-                        openDropdownMenu(true);
-                        
-                      }}
-                      onMouseOver={()=>{
-                        handleNav('active');
-                      }}
+                        onMouseLeave={()=>{
+                          handleNav('inactive');
+                          openDropdownMenu(false)
+                        }}>
+                          <Link >Company</Link>
+                        </li> 
 
-                      onMouseLeave={()=>{
-                        handleNav('inactive');
-                        openDropdownMenu(false)
-                      }}>
-                        <Link >Company</Link>
-                      </li> 
-                    </ul>
-            
-            
-                    <ul className="nav-right">
-                      <li className='nav-link hero' >
-                        <Link to='' >
-                          <SearchRoundedIcon/>
-                        </Link>
-                      </li>
-                      <li className='nav-link hero' >
-                        <Link to='' >
-                          <PersonOutlineRoundedIcon/>
-                        </Link>
-                      </li>
-                      <li className='nav-link hero' >
-                        <Link to='' >
-                          <FavoriteBorderIcon/>
-                        </Link>
-                      </li> 
-                    </ul>
-        </div>
+                        <li className='nav-link hero' >
+                          <Link to='' >
+                            <SearchRoundedIcon/>
+                          </Link>
+                        </li>
+                        <li className='nav-link hero' >
+                          <Link to='' >
+                            <PersonOutlineRoundedIcon/>
+                          </Link>
+                        </li>
+                        <li className='nav-link hero' >
+                          <Link to='' >
+                            <FavoriteBorderIcon/>
+                          </Link>
+                        </li> 
+                      </ul>
+          </div>
 
         <div className={"homedropdown" + (isDropDownOpen ? " show" : "") } id='homedroptop' >
-                    <div className="drop-wrapper" id='drop-wrapper-hero' 
-                      onMouseOver={()=>[
-                        handleNav('active')
-                      ]}>
+                    <div className="drop-wrapper" id='drop-wrapper-hero' onMouseEnter={()=>[handleNav('active')]}  onMouseOver={()=>[handleNav('active')]} onMouseLeave={()=>{handleNav('inactive');}} >
 
-                      <div  /*products*/
+                    
+
+                      <div  
                         onMouseEnter={()=>{
                         openDropdownMenu(true);
                         setDrop('products');
@@ -369,7 +378,8 @@ const Homepage = () => {
                       onMouseLeave={()=>{
                         openDropdownMenu(false);
                         setDrop('');
-                      handleNav('inactive');}} 
+                      handleNav('inactive');
+                    }} 
                         
                         
                       className={"products-dropdown" + (drop == 'products' ? " show" : "") + 
@@ -397,9 +407,10 @@ const Homepage = () => {
                           <p className='text-xs text-gray-600'>PRODUCT FOCUS: Lorem ipsum dolor sit amet consectetur.</p>
                           <img className='aspect-square max-h-[440px] max-w-[440px]' src={focus} alt="" />
                         </div>
+                        
                       </div>
             
-                      <div  onMouseEnter={()=>{
+                      <div   onMouseEnter={()=>{
                         openDropdownMenu(true);
                         setDrop('designers');
                         handleNav('active');
@@ -407,7 +418,8 @@ const Homepage = () => {
                       onMouseLeave={()=>{
                         openDropdownMenu(false);
                         setDrop('');
-                       ;
+                        handleNav('inactive');
+                       
                         }} className={"designers-dropdown" + (drop == 'designers' ? " show" : "") +   " h-fit grid grid-cols-3"} >
             
                         <div className="px-8 col-span-2 py-5 sec">
@@ -482,6 +494,7 @@ const Homepage = () => {
                       </div>
             
                     </div>
+                    
         </div>
 
         </div>}
