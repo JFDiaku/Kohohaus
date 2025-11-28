@@ -3,6 +3,7 @@ import FilterWidget from "../components/FilterWidget.tsx"
 
 
 const Products = () => {
+
   return (
     <>
     <section className="mt-0 lg:mt-20 lg:px-10 px-4 md:px-5 pt-20 pb-10 lg:pb-15">

@@ -81,7 +81,7 @@ const Footer : React.FC<color> = ({color}) => {
 
   return (
     <>
-    <div  className={(color == "white" ? "bg-white" : "bg-black") + " px-5 md:px-10"}>
+    <div  className={(color == "white" ? "bg-white" : "bg-black") + " px-5 md:px-10 "}>
 
       <div className="mycontainer">
         <div className="w-full grid grid-cols-2 md:grid-cols-4 py-10 gap-10">

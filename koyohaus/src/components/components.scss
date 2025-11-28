@@ -3,5 +3,50 @@
     border-bottom: gray 1px solid;;
     position: sticky;
     top: 0;
+    z-index: 10;
     transition: all .3s ease-in-out;
+}
+
+.filter-dropdown{
+    position: fixed;
+    top: 3rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+}
+
+.filter{
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
+
+
+.filter.show{
+    opacity: 1;
+    transition: opacity .2s ease-in-out;
+    pointer-events: all;
+}
+
+
+.filtermenu{
+    z-index: -1;
+    position: relative;
+}
+
+.filtermenu.show{
+    z-index: 1;
+}
+
+.Accordion-options{
+ position: absolute;
+ bottom: 3rem;
+ left: 0;
+ right: 0;
 }
