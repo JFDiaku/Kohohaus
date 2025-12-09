@@ -134,8 +134,10 @@ const Navbar = () => {
     if(!wrapper) return 
     if(state === 'company'){
       wrapper.style.height = '140px';
-    }else{
+    }else if(state === 'designers' || state === 'products'){
       wrapper.style.height = '500px'
+    }else if(state === ''){
+      wrapper.style.height = '0';
     }
   } 
 
@@ -167,6 +169,8 @@ const Navbar = () => {
             setMenu('products');
             changeWrapperHeight('products');
           }} 
+
+          
         >
             <Link to='/products' >Products</Link>
           </li>
@@ -225,6 +229,7 @@ const Navbar = () => {
           onMouseLeave={()=>{
             openDropdown(false);
             setMenu('');
+            changeWrapperHeight('');
             }} className={"products-dropdown" + (menu == 'products' ? " show" : "") +  " h-fit grid grid-cols-3"} >
             <div className="px-8 max-h-min pt-5">
               <p className='text-xs text-gray-600 font-medium'>BY CATEGORY</p> 
@@ -256,6 +261,7 @@ const Navbar = () => {
           }} 
           onMouseLeave={()=>{
             openDropdown(false);
+            changeWrapperHeight('');
             setMenu('');
             }} className={"designers-dropdown" + (menu == 'designers' ? " show" : "") +   " h-fit grid grid-cols-3"} >
 
@@ -286,6 +292,7 @@ const Navbar = () => {
           onMouseLeave={()=>{
             openDropdown(false);
             setMenu('');
+            changeWrapperHeight('');
             }} className={"company-dropdown" + (menu == 'company' ? " show" : "") +   " h-fit grid grid-cols-4"} >
 
             <div className="px-8 py-5 sec1">

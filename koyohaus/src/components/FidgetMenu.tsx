@@ -4,6 +4,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { useMediaQuery } from '@mui/material';
 
 
 type Props = {
@@ -20,6 +21,7 @@ const FidgetMenu = ({mode, handleNav}: Props) => {
   }
 
 
+  const isDesktop = useMediaQuery("(min-width:1025px)");
 
   
   // Dropdown Nav Links//////
@@ -73,9 +75,9 @@ const FidgetMenu = ({mode, handleNav}: Props) => {
 
 
    return (
-    <div className={'min-h-[100vh] flex flex-col border-b-3 border-black filtermenu' + (mode !== 'inactive' ? ' show' : '')}>
+    <div className={'flex flex-col filtermenu' + (isDesktop ? ' desk' : '') + (mode !== 'inactive' ? ' show' : '')}>
 
-        <div className={"filter" + (mode === 'filter' ?  " show" : "")}>
+        {!isDesktop && <div className={"filter" + (mode === 'filter' ?  " show" : "")}>
             <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -152,8 +154,9 @@ const FidgetMenu = ({mode, handleNav}: Props) => {
 
             <button onClick={()=>handleNav('inactive')} className='bg-black p-0 text-xs text-white px-6 py-3'>Seen products (260)</button>
             </div>
-        </div>
-      
+        </div>}
+    
+
 
 
       

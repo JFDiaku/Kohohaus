@@ -3,8 +3,13 @@
     border-bottom: gray 1px solid;;
     position: sticky;
     top: 0;
-    z-index: 10;
-    transition: all .3s ease-in-out;
+    z-index: 5;
+    transition: all .1s ease-in-out;
+}
+.filterwidget.active{
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    transition: all .1s ease-in-out;
 }
 
 .filter-dropdown{
@@ -13,8 +18,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-
 }
+
 
 .filter{
     opacity: 0;
@@ -25,10 +30,59 @@
     right: 0;
     bottom: 0;
     top: 0;
+    background-color: white;
+}
+
+.filter.desk{
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 2.9rem;
+    height: 450px;
+    background-color: white;
+}
+
+.filter.desk.show{
+    border-bottom: 2px solid black;
 }
 
 
-.filter.show{
+.sort{
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+   top: 2.8rem;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.sort-desktop{
+      opacity: 0;
+    transition: opacity .2s ease-in-out;
+    pointer-events: none;
+    position: absolute;
+    top: 2.8rem;
+    display: flex;
+    flex-direction: column;
+        width: 500px;
+      right: 0;
+      left: unset;  
+      border: gray 2px solid ;
+    border-top: none;
+    }
+
+
+
+
+.filter.show, .sort.show, .sort-desktop.show{
     opacity: 1;
     transition: opacity .2s ease-in-out;
     pointer-events: all;
@@ -38,11 +92,15 @@
 .filtermenu{
     z-index: -1;
     position: relative;
+    min-height: 0;
 }
 
 .filtermenu.show{
     z-index: 1;
+    min-height: 100vh;
 }
+
+
 
 .Accordion-options{
  position: absolute;
@@ -50,3 +108,38 @@
  left: 0;
  right: 0;
 }
+
+
+
+
+.sort-label{
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    input[type="radio"]{
+        appearance: none;
+        width: 15px;
+        height: 15px;
+        border: black solid 2px;
+        cursor: pointer;
+        position: relative;
+    }
+   
+     input[type="radio"]:checked::after{
+        position:absolute;
+        content: '';
+        top: 0;
+        right:0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+       background-color: black;
+        cursor: pointer;
+    }
+}
+
+
