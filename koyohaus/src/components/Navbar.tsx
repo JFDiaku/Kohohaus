@@ -28,6 +28,7 @@ const Navbar = () => {
 
     if(currentScroll == 0){
       nav.style.top = "0";
+
       return;
     }
 

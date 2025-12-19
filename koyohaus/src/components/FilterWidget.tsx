@@ -62,7 +62,7 @@ const FilterWidget = () => {
       widget.style.top = "0";
     } else {
       // Upscroll
-      widget.style.top = isDesktop ? "5.5rem" : "3.7rem";
+      widget.style.top = isDesktop ? "5.5rem" : "3.5rem";
     }
 
     
@@ -73,20 +73,23 @@ const FilterWidget = () => {
   
 const handleNav = (state: String) => {
     const widget =  document.getElementById("widget") ;
+
     const currentScroll = window.scrollY || document.documentElement.scrollTop;
     if(!widget) return;
     let doc = document.documentElement;
     setMode(state);
     console.log(mode)
-    if(state === 'filter' && currentScroll < 300 && !isDesktop ){
+    if(state === 'filter' && !isDesktop && currentScroll < 300 ){
        window.scrollTo({
     top: 200,      
     behavior: "smooth"
   });
         widget.style.top = "0";
         doc.style.overflow = "hidden"; 
-    }
-    else if(state === 'sort'){
+    }else if(state === 'filter' && !isDesktop){
+        widget.style.top = "0";
+        doc.style.overflow = "hidden"; 
+    }else if(state === 'sort'){
         doc.style.overflow = "";  
     }
     else{
@@ -108,9 +111,9 @@ const handleNav = (state: String) => {
     <section className={"lg:px-10 px-4 md:px-5 filterwidget" + (mode !== 'inactive' ? ' active' : '' )} id='widget'>
       <div className="mycontainer relative">
 
-        <div className="grid grid-cols-3 lg:grid-cols-6 w-full">
+        <div className="grid grid-cols-3 lg:grid-cols-6 w-full text-sm">
           <div className={(mode !== 'inactive' ? "border-e-2 border-black" : "border-e-1 border-gray-500") + " flex justify-between items-center pe-4 py-2"}>
-            <p className="text-lg">Filter</p>
+            <p className="lg:text-lg">Filter</p>
            {mode !== 'filter' ? <span onClick={()=>{handleNav('filter')}}><Add sx={{fontSize:"20px"}}/> </span>
            : <span onClick={()=>{handleNav('inactive');}}><Remove sx={{fontSize:"20px"}}/> </span> }
           </div>

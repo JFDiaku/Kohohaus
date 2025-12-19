@@ -45,7 +45,7 @@
   .nav-left{
     display: flex;
     align-items: center;
-   
+    
     .nav-link{
       padding: 1rem;
     }
@@ -152,6 +152,7 @@ background-color: white;
   color: black;
   z-index: 10;
   height: 0;
+
 }
 
 
@@ -192,6 +193,7 @@ background-color: white;
 .dropdown.show .drop-wrapper::after, .dropdown.show .drop-wrapper::before,
 .homedropdown.show::after, .homedropdown.show::before{
   width: 100%;
+  transition: all .5s ease-in-out;
 }
 
 .dropdown.show .drop-wrapper, .homedropdown.show #drop-wrapper-hero{
@@ -381,7 +383,7 @@ background-color: white;
 .nav.mobile.active{
   background-color: white;
   border-bottom: solid 1px black;
-  transition: color 2s 1s , top .5s  ease-in-out !important ;
+  transition: color 2s 1s , top .2s  ease-in-out !important ;
   .nav-wrapper{
     ul{
       a{
@@ -406,7 +408,7 @@ background-color: white;
   max-height: 0;
   min-height: 0;
   opacity: 0;
-  transition: all .3s ease-in-out;
+  transition: all .2s ease-in-out;
   pointer-events: none;
   .mobile-nav-item{
     min-height: 0;

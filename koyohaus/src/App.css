@@ -127,6 +127,7 @@
   --aspect-card: 6 / 8; 
   --aspect-frame: 9/ 11 ; 
   --aspect-tv: 16 / 9; 
+  --breakpoint-smedium: 495px;
 }
 
 @layer base {

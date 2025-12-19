@@ -2,9 +2,11 @@
     border-top: gray 1px solid;
     border-bottom: gray 1px solid;;
     position: sticky;
+    background-color: white;
     top: 0;
     z-index: 5;
     transition: all .1s ease-in-out;
+    cursor: pointer;
 }
 .filterwidget.active{
     border-top: 2px solid black;
@@ -14,10 +16,10 @@
 
 .filter-dropdown{
     position: fixed;
-    top: 3rem;
+    top: 2.8rem;
     left: 0;
     right: 0;
-    bottom: 0;
+    z-index: 5;
 }
 
 
@@ -57,9 +59,10 @@
     position: absolute;
     left: 0;
     right: 0;
-   top: 2.8rem;
+   top: 2.9rem;
     display: flex;
     flex-direction: column;
+    background-color: white;
 }
 
 
@@ -77,6 +80,7 @@
       left: unset;  
       border: gray 2px solid ;
     border-top: none;
+    background-color: white;
     }
 
 
@@ -86,6 +90,7 @@
     opacity: 1;
     transition: opacity .2s ease-in-out;
     pointer-events: all;
+
 }
 
 
@@ -93,20 +98,19 @@
     z-index: -1;
     position: relative;
     min-height: 0;
+  
 }
 
 .filtermenu.show{
-    z-index: 1;
-    min-height: 100vh;
+    z-index: 10;
+ 
 }
+
 
 
 
 .Accordion-options{
- position: absolute;
- bottom: 3rem;
- left: 0;
- right: 0;
+    margin-top: auto;
 }
 
 
@@ -142,4 +146,64 @@
     }
 }
 
+.toggle-options{ 
+    transform: rotate(0deg);
+    transition: all .3s ease-in-out !important;
+    color: black;
+}
 
+.toggle-options.active{
+    transform: rotate(45deg);
+    transition: all .3s ease-in-out !important;
+    color: white;
+}
+
+
+
+.options{
+    transition: all .3s ease-in-out;
+    opacity: 0;
+    z-index: 2;
+
+}
+
+.active.options{
+    transition: all .3s ease-in-out;
+   opacity: 1; 
+}
+
+
+
+
+.product-options{
+    position: relative;
+    max-width: fit-content;
+}
+
+
+.product-options::before{
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    color: black;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .filter.show{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    }
+    .filtermenu.show{
+    z-index: 10;
+    }
+    .Accordion-options{
+        margin-bottom: 2rem;
+    }
+
+    
+}

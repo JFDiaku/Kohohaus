@@ -78,6 +78,7 @@ const FidgetMenu = ({mode, handleNav}: Props) => {
     <div className={'flex flex-col filtermenu' + (isDesktop ? ' desk' : '') + (mode !== 'inactive' ? ' show' : '')}>
 
         {!isDesktop && <div className={"filter" + (mode === 'filter' ?  " show" : "")}>
+            <div className="">
             <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -148,7 +149,8 @@ const FidgetMenu = ({mode, handleNav}: Props) => {
                 </div>
             </AccordionDetails>
             </Accordion>  
-
+            </div>
+            
             <div className="Accordion-options border-t-1 border-black flex gap-4 items-center py-5 px-4 justify-end">
             <p onClick={()=>handleNav('inactive')} className='text-xs'><u>Clear all</u></p>
 
