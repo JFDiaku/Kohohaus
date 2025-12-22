@@ -23,8 +23,8 @@ function App() {
       {showNavbar && <Navbar />}
  
        <Routes>
-          <Route path="/Kohohaus/" element={<Homepage/>}/>
-          <Route path="/Kohohaus/products" element={<Products/>}/>
+          <Route path="/" element={<Homepage/>}/>
+          <Route path="/products" element={<Products/>}/>
        </Routes>
        {<Footer color={showNavbar ? 'black' : 'white' }/>}
 
