@@ -11,6 +11,7 @@ import { useEffect } from 'react';
 import LandingNavBar from '../components/LandingNavBar.tsx';
 import focus from "../assets/Images/productFocus.avif";
 import desfocus from "../assets/Images/designFocus.avif";
+
 const Homepage = () => {
 
 
@@ -21,7 +22,7 @@ const Homepage = () => {
   const [drop, setDrop] = useState<String>('');
 
   
-  const heroImg = "src/assets/images/phillip-goldsberry-fZuleEfeA1Q-unsplash.jpg"
+  const heroImg = "../assets/images/phillip-goldsberry-fZuleEfeA1Q-unsplash.jpg"
 
   interface link {
     name: string,
@@ -31,50 +32,50 @@ const Homepage = () => {
 
   const categories: link[] = [
     {name: "TABLES",
-    to: "src/assets/Images/tables.avif"
+    to: "../assets/Images/tables.avif"
     },
     {name: "SOFAS",
-    to: "src/assets/Images/sofas.avif"
+    to: "../assets/Images/sofas.avif"
     },
     {name: "COFFEE TABLES",
-    to: "src/assets/Images/coffee.avif"
+    to: "../assets/Images/coffee.avif"
     },
     {name: "LOUNGUE CHAIRS",
-    to: "src/assets/Images/loungueChair.avif"
+    to: "../assets/Images/loungueChair.avif"
     },
     {name: "COMPLEMENTS",
-    to: "src/assets/Images/complements.avif"
+    to: "../assets/Images/complements.avif"
     },
     {name: "CHAIRS AND STOOLS",
-    to: "src/assets/Images/chairs.avif"
+    to: "../assets/Images/chairs.avif"
     }
     
   ]
 
   const designers: link[] = [
     {name: "Lorem ipsum",
-    to: "src/assets/Images/designer1.avif"
+    to: "../assets/Images/designer1.avif"
     },
     {name: "adipisicing elit",
-    to: "src/assets/Images/designer2.avif"
+    to: "../assets/Images/designer2.avif"
     },
     {name: "repudiandae voluptas",
-    to: "src/assets/Images/designer3.jpg"
+    to: "../assets/Images/designer3.jpg"
     },  
   ]
 
   const missions: link[] = [
     {name: "OUR MISSION",
-    to: "src/assets/Images/mission.avif"
+    to: "../assets/Images/mission.avif"
     },
     {name: "CERTIFICATIONS",
-    to: "src/assets/Images/bcorp.avif"
+    to: "../assets/Images/bcorp.avif"
     },
     {name: "PRODUCTION",
-    to: "src/assets/Images/production.avif"
+    to: "../assets/Images/production.avif"
     },  
     {name: "TRACEABILITY",
-    to: "src/assets/Images/sustainability.webm"
+    to: "../assets/Images/sustainability.webm"
     },  
   ]
   
