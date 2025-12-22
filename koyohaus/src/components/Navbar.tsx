@@ -5,11 +5,9 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import focus from "../assets/Images/productFocus.avif";
 import desfocus from "../assets/Images/designFocus.avif";
 import "./navbar.scss"
-import FilterWidget from './FilterWidget';
-
-import { colors, MenuList, requirePropFactory, useMediaQuery } from '@mui/material';
+import { useMediaQuery } from '@mui/material';
 import { ArrowForward, Close, Menu} from '@mui/icons-material';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 const Navbar = () => {
   const isTablet = useMediaQuery("(max-width:1000px)");
   const isDesktop = useMediaQuery("(min-width:1025px)");

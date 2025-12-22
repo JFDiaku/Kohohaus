@@ -6,15 +6,12 @@ import focus from "../assets/Images/productFocus.avif";
 import desfocus from "../assets/Images/designFocus.avif";
 import "./navbar.scss"
 
-import { colors, MenuList, requirePropFactory, useMediaQuery } from '@mui/material';
+import { useMediaQuery } from '@mui/material';
 import { ArrowForward, Close, Menu} from '@mui/icons-material';
 import { useEffect, useState } from 'react';
 
-interface mode{
-  active: boolean
-}
 
-const LandingNavBar: React.FC<mode> = ({active}) => {
+const LandingNavBar = () => {
   const isTablet = useMediaQuery("(max-width:1000px)");
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const [isMobileNavOpen, openMobileNav] = useState<boolean>(false);

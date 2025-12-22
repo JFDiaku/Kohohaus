@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -14,11 +14,6 @@ type Props = {
 
 const FidgetMenu = ({mode, handleNav}: Props) => {
 
-  interface link{
-    name: string
-    to: string
-    amount: number
-  }
 
 
   const isDesktop = useMediaQuery("(min-width:1025px)");
@@ -68,7 +63,7 @@ const FidgetMenu = ({mode, handleNav}: Props) => {
  
   const [expanded, setExpanded] = useState<string | false>(false);
 
-  const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+  const handleChange = (panel: string) => (_event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
     };
     

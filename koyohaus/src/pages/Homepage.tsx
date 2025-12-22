@@ -5,8 +5,8 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Link } from "react-router-dom"
 import { East } from "@mui/icons-material";
 import { useMediaQuery } from '@mui/material';
-import { Carousel, CarouselApi, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "../components/ui/carousel.tsx";
-import { ReactNode, useState } from 'react';
+import { Carousel,  CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "../components/ui/carousel.tsx";
+import { useState } from 'react';
 import { useEffect } from 'react';
 import LandingNavBar from '../components/LandingNavBar.tsx';
 import focus from "../assets/Images/productFocus.avif";
@@ -16,11 +16,10 @@ const Homepage = () => {
 
  
   
-  const isTablet = useMediaQuery("(max-width:1000px)");
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const [isDropDownOpen, openDropdownMenu] = useState<boolean>(false);
   const [drop, setDrop] = useState<String>('');
-  const [active, setActive] = useState<boolean>(false);
+
   
   const heroImg = "src/assets/images/phillip-goldsberry-fZuleEfeA1Q-unsplash.jpg"
 
@@ -79,7 +78,7 @@ const Homepage = () => {
     },  
   ]
   
-  let navTop = false;
+
 
   useEffect(() => {
     const nav = document.getElementById("hero-nav") ;
@@ -88,7 +87,7 @@ const Homepage = () => {
 
     if (!nav) return;
     if (!homedropdown) return;
-    let lastScrollTop = window.scrollY || document.documentElement.scrollTop;
+
 
    
     const handleScroll = () => {
@@ -121,7 +120,6 @@ const Homepage = () => {
 
       }
 
-      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     };
 
     
@@ -249,7 +247,7 @@ const Homepage = () => {
 
   return (
     <>
-    <LandingNavBar active={false}/>
+    <LandingNavBar />
 
       <div id='hero' className="h-screen sticky -z-1 top-0 px-4 md:px-5 lg:px-10 text-white flex justify-center items-end pb-16 md:pb-40 " 
       style={{
@@ -318,7 +316,7 @@ const Homepage = () => {
                           handleNav('inactive');
                           openDropdownMenu(false)
                         }}>
-                          <Link >Designers</Link>
+                          <Link to={"/designers"} >Designers</Link>
                         </li>
 
                         
@@ -342,7 +340,7 @@ const Homepage = () => {
                           handleNav('inactive');
                           openDropdownMenu(false)
                         }}>
-                          <Link >Company</Link>
+                          <Link to={"/"} >Company</Link>
                         </li> 
 
                         <li className='nav-link hero' >
