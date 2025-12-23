@@ -11,7 +11,20 @@ import { useEffect } from 'react';
 import LandingNavBar from '../components/LandingNavBar.tsx';
 import focus from "../assets/Images/productFocus.avif";
 import desfocus from "../assets/Images/designFocus.avif";
-
+import tables from "../assets/Images/tables.avif";
+import sofas from "../assets/Images/sofas.avif";
+import coffee from "../assets/Images/coffee.avif";
+import loungeChair from "../assets/Images/loungueChair.avif";
+import complements from "../assets/Images/complements.avif";
+import chairs from "../assets/Images/chairs.avif";
+import designer1 from "../assets/Images/designer1.avif";
+import designer2 from "../assets/Images/designer2.avif"
+import designer3 from "../assets/Images/designer3.jpg"
+import mission from "../assets/Images/mission.avif"
+import bcorp from "../assets/Images/bcorp.avif"
+import production from "../assets/Images/production.avif"
+import sustainability from "../assets/Images/sustainability.webm"
+import heroImg from "../assets/images/phillip-goldsberry-fZuleEfeA1Q-unsplash.jpg"
 const Homepage = () => {
 
 
@@ -22,7 +35,7 @@ const Homepage = () => {
   const [drop, setDrop] = useState<String>('');
 
   
-  const heroImg = "../assets/images/phillip-goldsberry-fZuleEfeA1Q-unsplash.jpg"
+
 
   interface link {
     name: string,
@@ -32,50 +45,50 @@ const Homepage = () => {
 
   const categories: link[] = [
     {name: "TABLES",
-    to: "../assets/Images/tables.avif"
+    to: tables
     },
     {name: "SOFAS",
-    to: "../assets/Images/sofas.avif"
+    to: sofas
     },
     {name: "COFFEE TABLES",
-    to: "../assets/Images/coffee.avif"
+    to: coffee
     },
     {name: "LOUNGUE CHAIRS",
-    to: "../assets/Images/loungueChair.avif"
+    to: loungeChair
     },
     {name: "COMPLEMENTS",
-    to: "../assets/Images/complements.avif"
+    to: complements
     },
     {name: "CHAIRS AND STOOLS",
-    to: "../assets/Images/chairs.avif"
+    to: chairs
     }
     
   ]
 
   const designers: link[] = [
     {name: "Lorem ipsum",
-    to: "../assets/Images/designer1.avif"
+    to: designer1
     },
     {name: "adipisicing elit",
-    to: "../assets/Images/designer2.avif"
+    to: designer2
     },
     {name: "repudiandae voluptas",
-    to: "../assets/Images/designer3.jpg"
+    to: designer3
     },  
   ]
 
   const missions: link[] = [
     {name: "OUR MISSION",
-    to: "../assets/Images/mission.avif"
+    to: mission
     },
     {name: "CERTIFICATIONS",
-    to: "../assets/Images/bcorp.avif"
+    to: bcorp
     },
     {name: "PRODUCTION",
-    to: "../assets/Images/production.avif"
+    to: production
     },  
     {name: "TRACEABILITY",
-    to: "../assets/Images/sustainability.webm"
+    to: sustainability  
     },  
   ]
   
