@@ -135,7 +135,7 @@ const chairs: product[] = [
         {tables.map((tb) =>
         <div key={tb.id} className="flex flex-col text-start justify-center gap-4 relative">
 
-        <div className="product-table bg-[#f0f0f0] aspect-[23/18] flex items-center">
+        <div className="product-table bg-[#f0f0f0] aspect-[23/18] max-[500px]:aspect-[3/2]  flex items-center">
           <img src={tb.image} alt={tb.name} className="w-100 h-100 m-auto" />
         </div>
 
@@ -170,7 +170,7 @@ const chairs: product[] = [
         {sofas.map((sf) =>
         <div key={sf.id} className="flex flex-col text-start justify-center gap-4 relative">
 
-        <div className="product-table bg-[#f0f0f0] aspect-[23/18] flex items-center">
+        <div className="product-table bg-[#f0f0f0] md:aspect-[23/18] flex items-center">
           <img src={sf.image} alt={sf.name} className="w-100 h-100 m-auto" />
         </div>
 
