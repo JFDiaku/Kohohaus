@@ -16,6 +16,8 @@ const LandingNavBar = () => {
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const [isMobileNavOpen, openMobileNav] = useState<boolean>(false);
   const [isDropOpen, openDropdown] = useState<boolean>(false);
+  const [dark, toggleDark] = useState<boolean>(false);
+
   const [menu, setMenu] = useState<String>('');
   
 
@@ -173,6 +175,13 @@ const LandingNavBar = () => {
     if(!nav) return;
 
     const currentScroll = window.scrollY || document.documentElement.scrollTop;
+
+
+    if(currentScroll > 300){
+      toggleDark(true);
+    }else{
+      toggleDark(false);
+    }
 
     if(currentScroll == 0){
       nav.style.top = "0";
@@ -377,7 +386,7 @@ const LandingNavBar = () => {
 
     {isTablet &&
     <>
-    <div id='mobile-nav' className={isMobileNavOpen ? "nav mobile active" : "nav mobile"}>
+    <div id='mobile-nav' className={(isMobileNavOpen ? "nav mobile active" : "nav mobile") + (dark ? " dark" : "")}>
     
     <div className="nav-wrapper" >
     <Link to='/'  onClick={()=> scrollLock(false)} className="logo">Kōyōhaus</Link>
@@ -387,19 +396,19 @@ const LandingNavBar = () => {
       <ul className="nav-right">
         <li className='nav-link'>
           <Link to='' >
-            <SearchRoundedIcon sx={{color: isMobileNavOpen ? 'black' : 'white', fontSize:'30px'}}/>
+            <SearchRoundedIcon sx={{color: (isMobileNavOpen || dark) ? 'black' : 'white', fontSize:'30px'}}/>
           </Link>
         </li>
         <li className='nav-link'>
           <Link to='' >
-            <PersonOutlineRoundedIcon sx={{color: isMobileNavOpen ? 'black' : 'white',  fontSize:'30px'}}/>
+            <PersonOutlineRoundedIcon sx={{color: (isMobileNavOpen || dark) ? 'black' : 'white',  fontSize:'30px'}}/>
           </Link>
         </li>
         <li className='nav-link' onClick={()=>
         {openMobileNav(!isMobileNavOpen);
          scrollLock(!isMobileNavOpen);
         }}>
-            { isMobileNavOpen ? 
+            { (isMobileNavOpen || dark)  ? 
             <Close sx={{color:'black', fontSize:'30px'}}/>
             :
             <Menu sx={{color:'white', fontSize:'30px'}} />}

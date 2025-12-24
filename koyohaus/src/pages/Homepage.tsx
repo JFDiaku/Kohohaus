@@ -126,7 +126,7 @@ const Homepage = () => {
         homedropdown.style.marginBottom = 'unset';
         homedropdown.style.bottom = 'unset';
         homedropdown.style.top = '0';
-        homedropdown.style.marginTop = '5.5rem';
+        homedropdown.style.marginTop = '5.6rem ';
       }else{
         homedropdown.style.marginTop = 'unset';
         homedropdown.style.top = 'unset';
