@@ -77,6 +77,7 @@ const chairs: product[] = [
   {name: "Risom Magazine Table", image: table2, designer: 'Lucien Mårten', id: 11},
   {name: "Post Table", image: table3, designer: 'Henrik Vaals', id: 12},
   {name: "Islets Table", image: table4, designer: 'Elena Rousseau', id: 13},
+  {name: "Trinidad Table", image: table5, designer: 'Ansel Reinhardt', id: 38},
   {name: "Library Table", image: table6, designer: 'Otto Krell', id: 14},
   {name: "Taro Rectangular Table", image: table7, designer: 'Marcelle Dupré', id: 15},
   {name: "C18 Dining Table", image: table8, designer: 'Lorenzo Vélin', id: 16},
