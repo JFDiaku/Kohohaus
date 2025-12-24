@@ -24,7 +24,8 @@ import mission from "../assets/Images/mission.avif"
 import bcorp from "../assets/Images/bcorp.avif"
 import production from "../assets/Images/production.avif"
 import sustainability from "../assets/Images/sustainability.webm"
-import heroImg from "../assets/images/phillip-goldsberry-fZuleEfeA1Q-unsplash.jpg"
+import heroImg from "../assets/Images/phillip-goldsberry-fZuleEfeA1Q-unsplash.jpg"
+
 const Homepage = () => {
 
 
