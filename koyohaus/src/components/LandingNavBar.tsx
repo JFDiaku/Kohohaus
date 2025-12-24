@@ -408,9 +408,8 @@ const LandingNavBar = () => {
         {openMobileNav(!isMobileNavOpen);
          scrollLock(!isMobileNavOpen);
         }}>
-            { (isMobileNavOpen || dark)  ? 
-            <Close sx={{color:'black', fontSize:'30px'}}/>
-            :
+            { isMobileNavOpen  ? <Close sx={{color:'black', fontSize:'30px'}}/>:
+              dark ? <Menu sx={{color:'black', fontSize:'30px'}} /> :
             <Menu sx={{color:'white', fontSize:'30px'}} />}
         </li> 
       </ul>
