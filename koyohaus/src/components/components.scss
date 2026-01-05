@@ -207,3 +207,49 @@
 
     
 }
+
+.gridview, .listview{
+    height: 0;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+
+    img{
+        height: 0;
+    }
+}
+
+.gridview.show{
+    height: 100%;
+    opacity: 1;
+    transition: all .3s ease-in-out;
+}
+
+.listview.show{
+    height: 100%;
+    opacity: 1;
+    transition: all .3s ease-in-out;
+}
+
+.grid-button, .list-button{
+padding: 5px 10px;
+transition:all .2s ease-in-out ;
+color: white;
+font-weight: 500;
+cursor: pointer;
+}
+
+.grid-button.show{
+transition:all .2s ease-in-out ;
+background-color: white;
+border-radius: 32px;
+padding: 5px 10px;
+color: black;
+}
+
+.list-button.show{
+transition:all .2s ease-in-out ;
+background-color: white;
+border-radius: 32px;
+padding: 5px 10px;
+color: black;
+}

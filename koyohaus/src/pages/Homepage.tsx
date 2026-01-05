@@ -11,12 +11,12 @@ import { useEffect } from 'react';
 import LandingNavBar from '../components/LandingNavBar.tsx';
 import focus from "../assets/Images/productFocus.avif";
 import desfocus from "../assets/Images/designFocus.avif";
-import tables from "../assets/Images/tables.avif";
-import sofas from "../assets/Images/sofas.avif";
+import tablesCat from "../assets/Images/tables.avif";
+import sofasCat from "../assets/Images/sofas.avif";
 import coffee from "../assets/Images/coffee.avif";
 import loungeChair from "../assets/Images/loungueChair.avif";
 import complements from "../assets/Images/complements.avif";
-import chairs from "../assets/Images/chairs.avif";
+import chairsCat from "../assets/Images/chairs.avif";
 import designer1 from "../assets/Images/designer1.avif";
 import designer2 from "../assets/Images/designer2.avif"
 import designer3 from "../assets/Images/designer3.jpg"
@@ -25,6 +25,23 @@ import bcorp from "../assets/Images/bcorp.avif"
 import production from "../assets/Images/production.avif"
 import sustainability from "../assets/Images/sustainability.webm"
 import heroImg from "../assets/Images/phillip-goldsberry-fZuleEfeA1Q-unsplash.jpg"
+import explore1 from "../assets/Images/explore1.avif"
+import explore2 from "../assets/Images/explore2.avif"
+import explore3 from "../assets/Images/explore3.avif"
+import explore4 from "../assets/Images/explore4.avif"
+import explore5 from "../assets/Images/explore5.avif"
+import explore6 from "../assets/Images/explore6.avif"
+import "../components/components.scss"
+import table1 from "../assets/Images/table3.png"
+import sofa2 from "../assets/Images/sofa2.png"
+import sofa7 from "../assets/Images/sofa4.png"
+
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import {chairs, stools, tables, sofas, product, comp} from  "../assets/data.ts" 
+
 
 const Homepage = () => {
 
@@ -34,37 +51,107 @@ const Homepage = () => {
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const [isDropDownOpen, openDropdownMenu] = useState<boolean>(false);
   const [drop, setDrop] = useState<String>('');
+  const [view, setView] = useState<String>('grid');
 
-  
+  const [expanded, setExpanded] = useState<string | false>(false);
+
+  const handleChange = (panel: string) => (_event: React.SyntheticEvent, isExpanded: boolean) => {
+      setExpanded(isExpanded ? panel : false);
+    };
+
 
 
   interface link {
     name: string,
-    to: string
+    to?: string,
+    img?: string,
+    text?: string
+    products?: product[]
   }
 
 
   const categories: link[] = [
     {name: "TABLES",
-    to: tables
+    to: tablesCat,
+    products: tables
     },
     {name: "SOFAS",
-    to: sofas
+    to: sofasCat,
+    products: sofas
     },
     {name: "COFFEE TABLES",
-    to: coffee
+    to: coffee,
+    products: stools
     },
     {name: "LOUNGUE CHAIRS",
-    to: loungeChair
+    to: loungeChair,
+    products: chairs
     },
     {name: "COMPLEMENTS",
-    to: complements
+    to: complements,
+    products: stools
     },
     {name: "CHAIRS AND STOOLS",
-    to: chairs
+    to: chairsCat,
+    products: stools
     }
     
   ]
+
+  const explore: link[] = [
+   {
+    name: "Plan Wood: Where warmth meets precision",
+    text: "Explore the new Plan Wood Series designed by Barber Osgerby. A warm and tactile evolution of the original Plan Collection.",
+    img: explore1,
+  },
+  {
+    name: "The Spanish Chair: A timeless icon",
+    text: "Børge Mogensen’s Spanish Chair blends solid craftsmanship with bold proportions and enduring comfort.",
+    img: explore2,
+  },
+  {
+    name: "J39 People’s Chair: Everyday elegance",
+    text: "A democratic design classic by Børge Mogensen, created for daily use with honest materials and form.",
+    img: explore3,
+  },
+  {
+    name: "Piloti Table: Architecture in furniture",
+    text: "Inspired by modernist principles, the Piloti Table balances structure and lightness in solid wood.",
+    img: explore4,
+  },
+  {
+    name: "Søborg Chair: Refined modern comfort",
+    text: "A sculptural chair that combines soft curves with precise lines, offering comfort without excess.",
+    img: explore5,
+  },
+  {
+    name: "Calmo Lounge: Quiet luxury",
+    text: "Designed for relaxed living, the Calmo Lounge series brings understated elegance to contemporary spaces.",
+    img: explore6,
+  },
+  ]
+
+
+
+  const designs: link[] = [
+    {
+    name: "Piloti Table",
+    text: "Noa Bennett",
+    img: table1,
+  },
+  {
+    name: "Risom Magazine Sofa",
+    text: "Lucien Mårten",
+    img: sofa2,
+  },
+  {
+    name: "Mogensen 2213 Sofa",
+    text: "Lorenzo Vélin",
+    img: sofa7,
+  },
+   
+  ]
+
 
   const designers: link[] = [
     {name: "Lorem ipsum",
@@ -126,7 +213,7 @@ const Homepage = () => {
         homedropdown.style.marginBottom = 'unset';
         homedropdown.style.bottom = 'unset';
         homedropdown.style.top = '0';
-        homedropdown.style.marginTop = '5.6rem ';
+        homedropdown.style.marginTop = '5.5rem ';
       }else{
         homedropdown.style.marginTop = 'unset';
         homedropdown.style.top = 'unset';
@@ -276,7 +363,7 @@ const Homepage = () => {
 
 
           <div className="flex-col flex gap-5 w-full " style={{maxWidth:"2000px"}} >
-            <p className="text-6xl font-light">Welcome to Kōyōhaus: Lorem ipsum dolor sit amet. </p>
+            <p className="text-6xl font-light">Welcome to Kōyōhaus</p>
             <a className="text-xl flex gap-2 items-center" href="">
               Explore 
               <East className="mt-2" sx={{fontSize:'25px'}}/>
@@ -516,17 +603,17 @@ const Homepage = () => {
         <div className="bg-black">
 
         <div className="mycontainer lg:px-10 px-4 md:px-5  pb-20 bg-black">
-        <p className="md:text-6xl text-4xl font-light md:max-w-10/12 text-white pt-10 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, modi temporibus repudiandae quis magnam eos.</p>
+        <p className="md:text-6xl text-4xl font-light md:max-w-10/12 text-white pt-10 ">Kōyōhaus is a modern design house rooted in craftsmanship, creating enduring originals shaped by precision, purpose, and time.</p>
         
         
-        <div className="bg-gray-200 flex w-fit rounded-4xl gap-2 text-sm ml-auto -mb-24 mt-40">
-          <p className="bg-white rounded-4xl w-fit p-2">Grid view</p>
-          <p className="w-fit rounded-4xl py-2 pe-2">List view</p>
+        <div className="bg-[#333333] flex w-fit rounded-4xl gap-2 text-sm ml-auto -mb-24 mt-40">
+          <p onClick={()=>setView('grid')} className={"grid-button" + (view === "grid" ? ' show' : '')}>Grid view</p>
+          <p onClick={()=>setView('list')} className={"list-button" + (view === "list" ? ' show' : '')}>List view</p>
         </div>
 
      
-
-        <div className="grid grid-cols-2 md:grid-cols-3 mt-35 md:gap-8 gap-4 text-white ">
+  
+        <div className={"grid grid-cols-2 md:grid-cols-3 mt-35 md:gap-8 gap-4 text-white gridview" + (view === "grid" ? ' show' : '')}>
         {categories.map((cat, indx)=> 
           <div key={indx} className="md:p-6 p-2 box-border aspect-retro md:aspect-frame" style={{
             backgroundImage:`url("${cat.to}")`,
@@ -538,6 +625,50 @@ const Homepage = () => {
           </div>
          )}
         </div>
+
+        <div className={"listview" + (view === "list" ? ' show' : '')}>
+        {categories.map((cat, indx)=> 
+          <Accordion key={indx}
+           sx={{
+            backgroundColor:"transparent",
+          color:'white',
+          borderTop:'2px gray solid',
+         borderBottom: indx === 5 ? '2px gray solid' : ''}} 
+          expanded={expanded === `panel${indx}`} 
+          onChange={handleChange(`panel${indx}`)}>
+            <AccordionSummary
+                expandIcon={<ExpandMoreIcon sx={{color:'white'}} />}
+                aria-controls={`panel${indx}bh-content`}
+                id={`panel${indx}bh-header`}
+            >
+                <p className='md:text-[35px] text-[20px]'>
+                {cat.name}
+                </p>
+
+            </AccordionSummary>
+            <AccordionDetails>
+
+              <div className="flex md:gap-4 gap-1 justify-evenly flex-wrap ">
+                {cat.products?.map((img, index)=>
+                <div key={index} className={ (cat.name === 'CHAIRS AND STOOLS' || 
+                          cat.name ===  'LOUNGUE CHAIRS' || 
+                          cat.name ===   'COFFEE TABLES' || cat.name ===   'COMPLEMENTS' ?
+                           "aspect-[2/3] max-h-[200px] max-w-[100px] w-full" : "aspect-[10/5] max-h-[150px] max-w-[300px] w-full" ) + ' bg-[#f0f0f0]'}
+                     >
+                  <img src={img.image} alt="" className='min-w-full min-h-full m-auto'/>
+                
+                </div>
+                )}
+              </div>
+                
+                
+                
+            </AccordionDetails>
+            </Accordion>
+         )}
+        </div>
+
+
         </div>
         </div>
       
@@ -548,17 +679,19 @@ const Homepage = () => {
     <section className="lg:px-10 px-4 md:px-5 py-20 bg-white">
       <div className="mycontainer">
         <p className="lg:text-6xl text-4xl font-normal md:max-w-5/12">Discover our most beloved designs</p>
-         <p className="mt-10">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste sunt veritatis aperiam hic iusto vero saepe repellat enim sit rerum? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, id!</p>
+         <p className="mt-10 max-w-[700px] text-lg">Designed by our designers, these products span chairs, tables, sofas, and stools that define our collection. From the J39 Mogensen Chair and Plan Table to the Mogensen sofas and Pioneer stools, each piece reflects careful craftsmanship and lasting design values.</p>
 
-         <Carousel className="mt-20" >
+         <Carousel className="mt-20"  >
         <CarouselContent className="gap-3 md:gap-8">
-          {categories.map((cat, indx)=> 
-              <CarouselItem key={indx} 
-              style={{
-                backgroundImage:`url("${cat.to}")`,
-                backgroundPosition:'center',
-                backgroundSize:'cover',    
-              }} className="lg:basis-1/5 md:1/4 basis-1/2 aspect-card  bg-amber-100 "></CarouselItem>
+          {designs.map((des, indx)=> 
+              <CarouselItem key={indx} className="basis  ">
+                <img src={des.img} className=" aspect-[40/24] min-h-100 min-w-100 m-auto bg-[#f0f0f0] xl:px-50 xl:pb-10 4xl:px-100 3xl:py-20 3xl:aspect-[54/30]   box-content"></img>
+
+                <div className="mt-5">
+                  <p className='font-light text-xl '>{des.name}</p>
+                  <p className='mt-2 text-3xl'>{des.text}</p>
+                </div>
+              </CarouselItem>
               )}
         </CarouselContent>
         <CarouselNext className="md:-right-5 -right-4 text-black" />
@@ -573,21 +706,24 @@ const Homepage = () => {
     <section className="lg:px-10 px-4 md:px-5 py-20 bg-black text-white">
       <div className="mycontainer">
         <p className="lg:text-6xl text-4xl font-normal md:max-w-5/12">Explore our Universe</p>
-         <p className="mt-10">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste sunt veritatis aperiam hic iusto vero saepe repellat enim sit rerum? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, id!</p>
+         <p className="mt-10 max-w-[700px] text-lg">Covering design news, interviews, and creative projects, these stories are capturing the most attention right now.</p>
 
          <Carousel className="mt-20" >
-        <CarouselContent className="gap-3 md:gap-8">
-          {categories.map((cat, indx)=> 
-              <CarouselItem key={indx} 
-              style={{
-                backgroundImage:`url("${cat.to}")`,
-                backgroundPosition:'center',
-                backgroundSize:'cover',    
-              }} className="lg:basis-1/5 md:1/4 basis-1/2 aspect-card  bg-amber-100 "></CarouselItem>
+        <CarouselContent className="lg:ml-20 justify-between">
+          {explore.map((cat, indx)=> 
+              <CarouselItem key={indx} className="basis md:basis-1/2  xl:basis-1/3 ">
+                <img src={cat.img} className=" aspect-card min-h-100 min-w-100 m-auto"></img>
+
+                <div className=" mt-3">
+                  <p>{cat.name}</p>
+                  <p className='mt-3 font-light'>{cat.text}</p>
+                </div>
+
+              </CarouselItem>
               )}
         </CarouselContent>
-        <CarouselNext className="md:-right-5 -right-4 text-black" />
-        <CarouselPrevious className="md:-left-5  -left-4 text-black" />
+        <CarouselNext className="md:-right-5 -right-4 text-black cursor-pointer" />
+        <CarouselPrevious className="md:-left-5  -left-4 text-black cursor-pointer" />
       </Carousel>
       </div>
 
