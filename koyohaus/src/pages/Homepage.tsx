@@ -40,7 +40,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import {chairs, stools, tables, sofas, product, comp} from  "../assets/data.ts" 
+import {chairs, stools, tables, sofas, product} from  "../assets/data.ts" 
 
 
 const Homepage = () => {
