@@ -2,7 +2,7 @@ import FilterWidget from "../components/FilterWidget.tsx"
 
 
 import {chairs, stools, tables, sofas} from  "../assets/data.ts" 
-
+import { Link } from "react-router-dom"
 import { Add } from "@mui/icons-material"
 import { useState } from "react"
 import "../components/components.scss"
@@ -49,6 +49,7 @@ const Products = () => {
            <p className="product-options">Add to Favorites</p> 
            <p className="product-options">Add to cart</p>
            <p className="product-options">All Images</p>
+           <Link to={`/product/${ch.id}`}>View Product</Link>
           </div>
         </div>
 
@@ -88,6 +89,7 @@ const Products = () => {
            <p className="product-options">Add to Favorites</p> 
            <p className="product-options">Add to cart</p>
            <p className="product-options">All Images</p>
+            <Link to={`/product/${st.id}`}>View Product</Link>
           </div>
         </div>
 
@@ -127,6 +129,7 @@ const Products = () => {
            <p className="product-options">Add to Favorites</p> 
            <p className="product-options">Add to cart</p>
            <p className="product-options">All Images</p>
+          <Link to={`/product/${tb.id}`}>View Product</Link>
           </div>
         </div>
 
@@ -164,6 +167,7 @@ const Products = () => {
            <p className="product-options">Add to Favorites</p> 
            <p className="product-options">Add to cart</p>
            <p className="product-options">All Images</p>
+            <Link to={`/product/${sf.id}`}>View Product</Link>
           </div>
         </div>
 

@@ -253,3 +253,33 @@ border-radius: 32px;
 padding: 5px 10px;
 color: black;
 }
+
+.frames-wrapper, .woods-wrapper{
+    transition: all .3s ease-in-out;
+}
+
+.frames-wrapper.show, .woods-wrapper.show{
+    border-top: black solid 3px;
+    border-bottom: black solid 3px;
+}
+
+.frames, .woods{
+    max-height: 0;
+    opacity: 0;
+    transition: all .2s ease-in-out;
+    pointer-events: none;
+}
+
+.frames.show, .woods.show{
+    margin-top: 32px;
+    margin-bottom: 32px;
+    max-height: 144px;
+    z-index: 1;
+     opacity: 1;
+     transition: all .2s ease-in-out;
+     pointer-events: all;
+}
+
+.woods.show{
+    margin-bottom: 50px;
+}
