@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom'
 import Products from './pages/Products.tsx'
 import Footer from './components/Footer.tsx'
 import Scroll from './components/Scroll.tsx'
-import Product from './pages/product.tsx'
+import Product from './pages/Product.tsx'
 
 function App() {
   const location = useLocation();
