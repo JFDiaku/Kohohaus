@@ -31,7 +31,7 @@ const Products = () => {
         <div key={ch.id} className="flex flex-col text-start justify-center gap-4 relative">
 
         <div className="product-chair bg-[#f0f0f0] aspect-[4/5]  md:aspect-card p-5  flex items-center">
-          <img src={ch.image} alt={ch.name} className="w-100 h-auto m-auto" />
+          <Link to={`/product/${ch.id}`} className="w-full"><img src={ch.image} alt={ch.name} className="w-100 h-auto m-auto" /></Link>
         </div>
 
         <div className="flex flex-col gap-1 ">
@@ -71,7 +71,7 @@ const Products = () => {
         <div key={st.id} className="flex flex-col text-start justify-center gap-4 relative">
 
         <div className="product-chair bg-[#f0f0f0] aspect-[4/5]  md:aspect-card p-5  flex items-center">
-          <img src={st.image} alt={st.name} className="w-100 h-auto m-auto" />
+          <Link to={`/product/${st.id}`} className="w-full"><img src={st.image} alt={st.name} className="w-100 h-auto m-auto" /></Link>
         </div>
 
         <div className="flex flex-col gap-1 ">
@@ -111,7 +111,7 @@ const Products = () => {
         <div key={tb.id} className="flex flex-col text-start justify-center gap-4 relative">
 
         <div className="product-table bg-[#f0f0f0] md:aspect-[23/18] p-5  flex items-center">
-          <img src={tb.image} alt={tb.name} className="w-100 h-auto m-auto md:min-h-[300px]" />
+          <Link to={`/product/${tb.id}`} className="w-full"><img src={tb.image} alt={tb.name} className="w-100 h-auto m-auto" /></Link>
         </div>
 
         <div className="flex flex-col gap-1 ">
@@ -149,7 +149,7 @@ const Products = () => {
         <div key={sf.id} className="flex flex-col text-start justify-center gap-4 relative">
 
         <div className="product-table bg-[#f0f0f0] p-5  md:aspect-[23/18] flex items-center">
-          <img src={sf.image} alt={sf.name} loading="lazy" className="w-100 h-auto m-auto" />
+          <Link to={`/product/${sf.id}`} className="w-full"><img src={sf.image} alt={sf.name} className="w-100 h-auto m-auto" /></Link>
         </div>
 
         <div className="flex flex-col gap-1 ">

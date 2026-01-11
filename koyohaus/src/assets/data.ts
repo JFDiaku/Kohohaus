@@ -50,6 +50,7 @@ export interface product {
     image: string,
     designer: string,
     id: number
+    type?: number
   }
 
 export interface wood{
@@ -131,47 +132,47 @@ export const stools: product[] = [
 
 export const products: product[] = [
   // Chairs
-  { name: "J39 Mogensen Chair", image: chair1, designer: 'Lorenzo Vélin', id: 1 },
-  { name: "Søborg Chair", image: chair2, designer: 'Marcelle Dupré', id: 2 },
-  { name: "Trinidad Chair", image: chair3, designer: 'Ansel Reinhardt', id: 3 },
-  { name: "Canvas Chair", image: chair4, designer: 'Gianna Bellini', id: 4 },
-  { name: "Swoon Dining Chair", image: chair5, designer: 'Henrik Vaals', id: 5 },
-  { name: "Pato Chair", image: chair6, designer: 'Otto Krell', id: 6 },
-  { name: "Plan Chair", image: chair7, designer: 'Kade Elric', id: 7 },
-  { name: "Eyes Chair", image: chair8, designer: 'Jaxon Rhys', id: 8 },
-  { name: "Post Chair", image: chair9, designer: 'Avery Calder', id: 9 },
+  { name: "J39 Mogensen Chair", image: chair1, designer: 'Lorenzo Vélin', id: 1, type:1 },
+  { name: "Søborg Chair", image: chair2, designer: 'Marcelle Dupré', id: 2, type:1  },
+  { name: "Trinidad Chair", image: chair3, designer: 'Ansel Reinhardt', id: 3 , type:1 },
+  { name: "Canvas Chair", image: chair4, designer: 'Gianna Bellini', id: 4 , type:1 },
+  { name: "Swoon Dining Chair", image: chair5, designer: 'Henrik Vaals', id: 5, type:1  },
+  { name: "Pato Chair", image: chair6, designer: 'Otto Krell', id: 6 , type:1  },
+  { name: "Plan Chair", image: chair7, designer: 'Kade Elric', id: 7 , type:1  },
+  { name: "Eyes Chair", image: chair8, designer: 'Jaxon Rhys', id: 8 , type:1 },
+  { name: "Post Chair", image: chair9, designer: 'Avery Calder', id: 9 , type:1 },
 
   // Tables
-  { name: "BM67 Coffee Table", image: table1, designer: 'Noa Bennett', id: 10 },
-  { name: "Risom Magazine Table", image: table2, designer: 'Lucien Mårten', id: 11 },
-  { name: "Post Table", image: table3, designer: 'Henrik Vaals', id: 12 },
-  { name: "Islets Table", image: table4, designer: 'Elena Rousseau', id: 13 },
-  { name: "Trinidad Table", image: table5, designer: 'Ansel Reinhardt', id: 38 },
-  { name: "Library Table", image: table6, designer: 'Otto Krell', id: 14 },
-  { name: "Taro Rectangular Table", image: table7, designer: 'Marcelle Dupré', id: 15 },
-  { name: "C18 Dining Table", image: table8, designer: 'Lorenzo Vélin', id: 16 },
-  { name: "Plan Table", image: table9, designer: 'Kade Elric', id: 17 },
-  { name: "JG Side Table", image: table9, designer: 'Elena Rousseau', id: 18 },
+  { name: "BM67 Coffee Table", image: table1, designer: 'Noa Bennett', id: 10 , type: 2},
+  { name: "Risom Magazine Table", image: table2, designer: 'Lucien Mårten', id: 11 , type: 2 },
+  { name: "Post Table", image: table3, designer: 'Henrik Vaals', id: 12 , type: 2 },
+  { name: "Islets Table", image: table4, designer: 'Elena Rousseau', id: 13 , type: 2 },
+  { name: "Trinidad Table", image: table5, designer: 'Ansel Reinhardt', id: 38, type: 2 },
+  { name: "Library Table", image: table6, designer: 'Otto Krell', id: 14 , type: 2},
+  { name: "Taro Rectangular Table", image: table7, designer: 'Marcelle Dupré', id: 15 , type: 2 },
+  { name: "C18 Dining Table", image: table8, designer: 'Lorenzo Vélin', id: 16 , type: 2 },
+  { name: "Plan Table", image: table9, designer: 'Kade Elric', id: 17 , type: 2},
+  { name: "JG Side Table", image: table9, designer: 'Elena Rousseau', id: 18 , type: 2 },
 
   // Sofas
-  { name: "Mogensen 2212 Sofa", image: sofa1, designer: 'Gianna Bellini', id: 19 },
-  { name: "Mogensen 2213 Sofa", image: sofa2, designer: 'Lorenzo Vélin', id: 20 },
-  { name: "Calmo Modular Sofa", image: sofa3, designer: 'Ansel Reinhardt', id: 21 },
-  { name: "Delphi Two-Seater Sofa", image: sofa4, designer: 'Gianna Bellini', id: 22 },
-  { name: "Haiku Sofa", image: sofa6, designer: 'Otto Krell', id: 23 },
-  { name: "Mogensen 23 Sofa", image: sofa7, designer: 'Avery Calder', id: 24 },
-  { name: "Delphi Modular Sofa", image: sofa8, designer: 'Noa Bennett', id: 25 },
-  { name: "Haiku Three-Seater", image: sofa9, designer: 'Jaxon Rhys', id: 26 },
+  { name: "Mogensen 2212 Sofa", image: sofa1, designer: 'Gianna Bellini', id: 19 , type: 3 },
+  { name: "Mogensen 2213 Sofa", image: sofa2, designer: 'Lorenzo Vélin', id: 20, type: 3  },
+  { name: "Calmo Modular Sofa", image: sofa3, designer: 'Ansel Reinhardt', id: 21 , type: 3 },
+  { name: "Delphi Two-Seater Sofa", image: sofa4, designer: 'Gianna Bellini', id: 22 , type: 3 },
+  { name: "Haiku Sofa", image: sofa6, designer: 'Otto Krell', id: 23, type: 3  },
+  { name: "Mogensen 23 Sofa", image: sofa7, designer: 'Avery Calder', id: 24, type: 3  },
+  { name: "Delphi Modular Sofa", image: sofa8, designer: 'Noa Bennett', id: 25 , type: 3 },
+  { name: "Haiku Three-Seater", image: sofa9, designer: 'Jaxon Rhys', id: 26, type: 3  },
 
   // Stools
-  { name: "Pioneer Stool", image: stool1, designer: 'Kade Elric', id: 27 },
-  { name: "Spine Barstool", image: stool2, designer: 'Lucien Mårten', id: 28 },
-  { name: "Gallery Stool", image: stool3, designer: 'Henrik Vaals', id: 29 },
-  { name: "Pioneer Counter Stool", image: stool4, designer: 'Marcelle Dupré', id: 30 },
-  { name: "J16 Rocking Stool", image: stool6, designer: 'Avery Calder', id: 31 },
-  { name: "Pato Bar Stool", image: stool7, designer: 'Elena Rousseau', id: 32 },
-  { name: "Spine Counter Stool", image: stool8, designer: 'Otto Krell', id: 33 },
-  { name: "Pioneer Bar Stool", image: stool9, designer: 'Noa Bennett', id: 34 }
+  { name: "Pioneer Stool", image: stool1, designer: 'Kade Elric', id: 27, type: 4 },
+  { name: "Spine Barstool", image: stool2, designer: 'Lucien Mårten', id: 28, type: 4  },
+  { name: "Gallery Stool", image: stool3, designer: 'Henrik Vaals', id: 29, type: 4  },
+  { name: "Pioneer Counter Stool", image: stool4, designer: 'Marcelle Dupré', id: 30, type: 4  },
+  { name: "J16 Rocking Stool", image: stool6, designer: 'Avery Calder', id: 31, type: 4  },
+  { name: "Pato Bar Stool", image: stool7, designer: 'Elena Rousseau', id: 32 , type: 4 },
+  { name: "Spine Counter Stool", image: stool8, designer: 'Otto Krell', id: 33, type: 4  },
+  { name: "Pioneer Bar Stool", image: stool9, designer: 'Noa Bennett', id: 34 , type: 4 }
 ];
 
 

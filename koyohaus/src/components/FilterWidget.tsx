@@ -62,7 +62,7 @@ const FilterWidget = () => {
       widget.style.top = "0";
     } else {
       // Upscroll
-      widget.style.top = isDesktop ? "5.5rem" : "3.5rem";
+      widget.style.top = isDesktop ? "5.5rem" : "3.55rem";
     }
 
     

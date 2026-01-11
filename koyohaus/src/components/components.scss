@@ -5,13 +5,13 @@
     background-color: white;
     top: 0;
     z-index: 5;
-    transition: all .1s ease-in-out;
+    transition: all .3s ease-in-out;
     cursor: pointer;
 }
 .filterwidget.active{
     border-top: 2px solid black;
     border-bottom: 2px solid black;
-    transition: all .1s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 .filter-dropdown{
@@ -59,7 +59,7 @@
     position: absolute;
     left: 0;
     right: 0;
-   top: 2.9rem;
+   top: 2.7rem;
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -72,7 +72,7 @@
     transition: opacity .2s ease-in-out;
     pointer-events: none;
     position: absolute;
-    top: 2.8rem;
+    top: 2.9rem;
     display: flex;
     flex-direction: column;
         width: 500px;
